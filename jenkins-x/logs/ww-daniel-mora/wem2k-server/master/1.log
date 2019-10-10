@@ -1,0 +1,202 @@
+
+Showing logs for build [32mww-daniel-mora-wem2k-server-mas-1[0m stage [32mfrom-build-pack[0m and container [32mstep-credential-initializer-xk7rz[0m
+{"level":"warn","ts":1570744260.6835165,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/master\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1570744260.6838114,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+
+Showing logs for build [32mww-daniel-mora-wem2k-server-mas-1[0m stage [32mfrom-build-pack[0m and container [32mstep-working-dir-initializer-shj8c[0m
+{"level":"warn","ts":1570744263.1555147,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
+{"level":"info","ts":1570744263.156908,"logger":"fallback-logger","caller":"bash/main.go:65","msg":"Successfully executed command \"mkdir -p /workspace/source\""}
+
+Showing logs for build [32mww-daniel-mora-wem2k-server-mas-1[0m stage [32mfrom-build-pack[0m and container [32mstep-place-tools[0m
+
+Showing logs for build [32mww-daniel-mora-wem2k-server-mas-1[0m stage [32mfrom-build-pack[0m and container [32mstep-git-source-ww-daniel-mora-wem2k-server-mas-2fh79[0m
+{"level":"warn","ts":1570744289.284086,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/master\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1570744289.7713788,"logger":"fallback-logger","caller":"git/git.go:102","msg":"Successfully cloned https://github.com/**************/wem2k-server.git @ v0.0.8 in path /workspace/source"}
+
+Showing logs for build [32mww-daniel-mora-wem2k-server-mas-1[0m stage [32mfrom-build-pack[0m and container [32mstep-git-merge[0m
+Using SHAs from PULL_REFS=master:05efa7858505ec6e9c6e51573cc1e06d50705713
+WARNING: no SHAs to merge, falling back to initial cloned commit
+
+Showing logs for build [32mww-daniel-mora-wem2k-server-mas-1[0m stage [32mfrom-build-pack[0m and container [32mstep-setup-jx-git-credentials[0m
+Generated Git credentials file /workspace/xdg_config/git/credentials
+
+Showing logs for build [32mww-daniel-mora-wem2k-server-mas-1[0m stage [32mfrom-build-pack[0m and container [32mstep-build-npmrc[0m
+WARNING: failed to find Secret npm-token in namespace **
+
+Showing logs for build [32mww-daniel-mora-wem2k-server-mas-1[0m stage [32mfrom-build-pack[0m and container [32mstep-build-npm-install[0m
+
+> nodemon@1.19.1 postinstall /workspace/source/node_modules/nodemon
+> node bin/postinstall || exit 0
+
+[32mLove nodemon? You can now support the project via the open collective:[22m[39m
+ > [96m[1mhttps://opencollective.com/nodemon/donate[0m
+
+npm WARN optional SKIPPING OPTIONAL DEPENDENCY: fsevents@1.2.7 (node_modules/fsevents):
+npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for fsevents@1.2.7: wanted {"os":"darwin","arch":"any"} (current: {"os":"linux","arch":"x64"})
+
+added 702 packages from 861 contributors and audited 852499 packages in 11.211s
+found 15522 vulnerabilities (1 low, 1 moderate, 15520 high)
+  run `npm audit fix` to fix them, or `npm audit` for details
+
+Showing logs for build [32mww-daniel-mora-wem2k-server-mas-1[0m stage [32mfrom-build-pack[0m and container [32mstep-build-npm-test[0m
+
+> wem2k-server@0.1.0 test /workspace/source
+> jest
+
+PASS tests/integration.test.ts
+PASS tests/server.test.ts
+PASS tests/UUIDUtils.test.ts
+PASS tests/nockHelpers.test.ts
+PASS tests/routeHandler.test.ts
+PASS tests/wem2k.test.ts
+
+Test Suites: 6 passed, 6 total
+Tests:       33 passed, 33 total
+Snapshots:   0 total
+Time:        5.087s
+Ran all test suites.
+
+Showing logs for build [32mww-daniel-mora-wem2k-server-mas-1[0m stage [32mfrom-build-pack[0m and container [32mstep-build-container-build[0m
+[36mINFO[0m[0000] Downloading base image node:10               
+[36mINFO[0m[0001] Error while retrieving image from cache: getting file info: stat /workspace/sha256:e0f7dabe991810057aee6ba7a7d4136fe7fc70e99235d79e6c7ae0177656a5c8: no such file or directory 
+[36mINFO[0m[0001] Downloading base image node:10               
+[36mINFO[0m[0001] Checking for cached layer 090877160576.dkr.ecr.us-west-2.amazonaws.com/todo/cache:4e475380c506fa767308cf5d3f888c7fe3581fb7439fdac6ae17611366113d08... 
+[36mINFO[0m[0001] No cached layer found for cmd RUN set -ex;     apt-get update -y &&     apt-get install -y --no-install-recommends     rsync 
+[36mINFO[0m[0001] Unpacking rootfs as cmd RUN set -ex;     apt-get update -y &&     apt-get install -y --no-install-recommends     rsync requires it. 
+[36mINFO[0m[0018] Taking snapshot of full filesystem...        
+[36mINFO[0m[0024] RUN set -ex;     apt-get update -y &&     apt-get install -y --no-install-recommends     rsync 
+[36mINFO[0m[0024] cmd: /bin/sh                                 
+[36mINFO[0m[0024] args: [-c set -ex;     apt-get update -y &&     apt-get install -y --no-install-recommends     rsync] 
++ apt-get update -y
+Ign:1 http://deb.debian.org/debian stretch InRelease
+Get:2 http://deb.debian.org/debian stretch-updates InRelease [91.0 kB]
+Get:3 http://security.debian.org/debian-security stretch/updates InRelease [94.3 kB]
+Get:4 http://deb.debian.org/debian stretch Release [118 kB]
+Get:5 http://deb.debian.org/debian stretch Release.gpg [2365 B]
+Get:6 http://deb.debian.org/debian stretch-updates/main amd64 Packages [27.4 kB]
+Get:7 http://security.debian.org/debian-security stretch/updates/main amd64 Packages [500 kB]
+Get:8 http://deb.debian.org/debian stretch/main amd64 Packages [7086 kB]
+Fetched 7919 kB in 1s (5002 kB/s)
+Reading package lists...
++ apt-get install -y --no-install-recommends rsync
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following additional packages will be installed:
+  libpopt0
+Suggested packages:
+  openssh-server
+The following NEW packages will be installed:
+  libpopt0 rsync
+0 upgraded, 2 newly installed, 0 to remove and 15 not upgraded.
+Need to get 442 kB of archives.
+After this operation, 933 kB of additional disk space will be used.
+Get:1 http://deb.debian.org/debian stretch/main amd64 libpopt0 amd64 1.16-10+b2 [49.4 kB]
+Get:2 http://deb.debian.org/debian stretch/main amd64 rsync amd64 3.1.2-1+deb9u2 [393 kB]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 442 kB in 0s (2892 kB/s)
+Selecting previously unselected package libpopt0:amd64.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 29962 files and directories currently installed.)
+Preparing to unpack .../libpopt0_1.16-10+b2_amd64.deb ...
+Unpacking libpopt0:amd64 (1.16-10+b2) ...
+Selecting previously unselected package rsync.
+Preparing to unpack .../rsync_3.1.2-1+deb9u2_amd64.deb ...
+Unpacking rsync (3.1.2-1+deb9u2) ...
+Setting up libpopt0:amd64 (1.16-10+b2) ...
+Setting up rsync (3.1.2-1+deb9u2) ...
+invoke-rc.d: could not determine current runlevel
+invoke-rc.d: policy-rc.d denied execution of restart.
+Processing triggers for libc-bin (2.24-11+deb9u4) ...
+[36mINFO[0m[0028] Taking snapshot of full filesystem...        
+[36mINFO[0m[0032] WORKDIR /app                                 
+[36mINFO[0m[0032] cmd: workdir                                 
+[36mINFO[0m[0032] Changed working directory to /app            
+[36mINFO[0m[0032] Creating directory /app                      
+[36mINFO[0m[0032] Taking snapshot of files...                  
+[36mINFO[0m[0032] Pushing layer 090877160576.dkr.ecr.us-west-2.amazonaws.com/todo/cache:4e475380c506fa767308cf5d3f888c7fe3581fb7439fdac6ae17611366113d08 to cache now 
+[36mINFO[0m[0032] Using files from context: [/workspace/source/package-lock.json /workspace/source/package.json] 
+[36mINFO[0m[0032] COPY package*.json /app/                     
+[36mINFO[0m[0032] Taking snapshot of files...                  
+[36mINFO[0m[0032] RUN npm install                              
+[36mINFO[0m[0032] cmd: /bin/sh                                 
+[36mINFO[0m[0032] args: [-c npm install]                       
+
+> nodemon@1.19.1 postinstall /app/node_modules/nodemon
+> node bin/postinstall || exit 0
+
+[32mLove nodemon? You can now support the project via the open collective:[22m[39m
+ > [96m[1mhttps://opencollective.com/nodemon/donate[0m
+
+npm WARN optional SKIPPING OPTIONAL DEPENDENCY: fsevents@1.2.7 (node_modules/fsevents):
+npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for fsevents@1.2.7: wanted {"os":"darwin","arch":"any"} (current: {"os":"linux","arch":"x64"})
+
+added 702 packages from 861 contributors and audited 852499 packages in 11.342s
+found 15522 vulnerabilities (1 low, 1 moderate, 15520 high)
+  run `npm audit fix` to fix them, or `npm audit` for details
+[36mINFO[0m[0044] Taking snapshot of full filesystem...        
+[36mINFO[0m[0056] Using files from context: [/workspace/source] 
+[36mINFO[0m[0056] Pushing layer 090877160576.dkr.ecr.us-west-2.amazonaws.com/todo/cache:4c661a0367518b54832764206f0fae7a5c51a15dd1a554ba7fd232fd2dab4647 to cache now 
+[36mINFO[0m[0059] COPY . .                                     
+[36mINFO[0m[0061] Taking snapshot of files...                  
+[36mINFO[0m[0065] RUN npm run build                            
+[36mINFO[0m[0065] cmd: /bin/sh                                 
+[36mINFO[0m[0065] args: [-c npm run build]                     
+
+> wem2k-server@0.1.0 build /app
+> tsc
+
+[36mINFO[0m[0071] Taking snapshot of full filesystem...        
+[36mINFO[0m[0078] Pushing layer 090877160576.dkr.ecr.us-west-2.amazonaws.com/todo/cache:436eb523fdc3b236e1361f4ce50f0ed3b46d2c0719a3c7d4b8da6a81046924dd to cache now 
+[33mWARN[0m[0079] error uploading layer to cache: failed to push to destination 090877160576.dkr.ecr.us-west-2.amazonaws.com/todo/cache:4e475380c506fa767308cf5d3f888c7fe3581fb7439fdac6ae17611366113d08: NAME_UNKNOWN: The repository with name 'todo/cache' does not exist in the registry with id '090877160576' 
+2019/10/10 21:53:10 pushed blob: sha256:5e068506987d40dd84c3099b96957180addab7c0e48cef2027d59d9c11062093
+2019/10/10 21:53:10 pushed blob: sha256:28e90ffe3d1b37a1aabdc25f4042d5ec6e2bc052b66a11257dc223398bf78a3a
+2019/10/10 21:53:10 pushed blob: sha256:7b56dd71573ca30209c1a726edd61a6ad031a183edab68625a72a14ecff8edd8
+2019/10/10 21:53:10 pushed blob: sha256:a853708d725b6594adfc32bf91e07d09710348f3026ed1a8197001d5d953cc8c
+2019/10/10 21:53:10 pushed blob: sha256:e83c771c5387a93b121fdd5ff15d311f4b2426629857e685841e82fa4b054fab
+2019/10/10 21:53:11 pushed blob: sha256:e9542e67f971c5fea07914a67704c8bad699474cfd5ec72689e0e5ae1914eeea
+2019/10/10 21:53:11 pushed blob: sha256:a51441770e6702e75c25327e635f02da2b164ceb1aa10b1b222d9779d35cbd6c
+2019/10/10 21:53:12 pushed blob: sha256:4530c6472b5d2a08201c9cd65f43a788e526eb4fe498a4fbe5e4d5688535cd21
+2019/10/10 21:53:12 pushed blob: sha256:ef599477fae0e7485cae7d038240cda6358b3af22c7eb4ea502c60771b68dcae
+2019/10/10 21:53:13 pushed blob: sha256:0909fa51ae67221935f4c15b78bf4b1b53923dd00cf947b7cff00f24b1b0e25e
+2019/10/10 21:53:14 pushed blob: sha256:7e2d41c53938d0c6d8e81168b5e02b197d9dacba8b788a6b72e688477c0c476f
+2019/10/10 21:53:15 pushed blob: sha256:d34d61487075d127bf6dd2906ea3abc50e0a3cd9aa2f230fc41b253b153a17ee
+2019/10/10 21:53:17 pushed blob: sha256:092586df92068bd6b59c497f379e48302aa1b27cf76b2de64d262ba7bc19e47b
+2019/10/10 21:53:19 pushed blob: sha256:c18a7b4b2abc9ffb57a602f05357276cdd3fd7896c18b5bfbe1d12892182743d
+2019/10/10 21:53:21 pushed blob: sha256:da45e2ffa027d1f8706bafcb60c2aac702582ff09c50458fe005bbe9aacf50e4
+2019/10/10 21:53:37 pushed blob: sha256:87fc2710b63fcf6c0a5c876b1b37773d9e949cb4d66eeb06889ef84f7b5a5a93
+2019/10/10 21:53:37 090877160576.dkr.ecr.us-west-2.amazonaws.com/**************/wem2k-server:0.0.8: digest: sha256:46659afcbd438465566cabaa216b4c0130e4cfc2238fb4367ce386df583d4af9 size: 2718
+
+Showing logs for build [32mww-daniel-mora-wem2k-server-mas-1[0m stage [32mfrom-build-pack[0m and container [32mstep-build-post-build[0m
+no CVE provider running in the current ** namespace so skip adding image to be analysed
+
+Showing logs for build [32mww-daniel-mora-wem2k-server-mas-1[0m stage [32mfrom-build-pack[0m and container [32mstep-promote-changelog[0m
+Converted /workspace/source/charts/wem2k-server to an unshallow repository
+Generating change log from git ref 8fe4c426eac298dc01d74db6956dee91300debc1 => 4edce16fe3635c7550914f7e4adee0a33af0b9cd
+Associating user x-0 in users.jenkins.io with email daniel.mora@wework.com to git GitProvider user with login -0 as emails match
+Adding label jenkins.io/git-github-userid=-0 to user x-0 in users.jenkins.io
+WARNING: Failed to enrich commit 05efa7858505ec6e9c6e51573cc1e06d50705713 with issues: User.jenkins.io "x-0" is invalid: metadata.labels: Invalid value: "-0": a valid label must be an empty string or consist of alphanumeric characters, '-', '_' or '.', and must start and end with an alphanumeric character (e.g. 'MyValue',  or 'my_value',  or '12345', regex used for validation is '(([A-Za-z0-9][-A-Za-z0-9_.]*)?[A-Za-z0-9])?')
+Finding issues in commit messages using git format
+WARNING: No release found for **************/wem2k-server and tag v0.0.8 so creating a new release
+Updated the release information at https://github.com/**************/wem2k-server/releases/tag/v0.0.8
+generated: /workspace/source/charts/wem2k-server/templates/release.yaml
+Created Release wem2k-server-0-0-8 resource in namespace **
+Updating PipelineActivity **************-wem2k-server-master-1 with version 0.0.8
+Updated PipelineActivities **************-wem2k-server-master-1 with release notes URL: https://github.com/**************/wem2k-server/releases/tag/v0.0.8
+
+Showing logs for build [32mww-daniel-mora-wem2k-server-mas-1[0m stage [32mfrom-build-pack[0m and container [32mstep-promote-helm-release[0m
+WARNING: No $CHART_REPOSITORY defined so using the default value of: http://jenkins-x-chartmuseum:8080
+Adding missing Helm repo: storage.googleapis.com https://storage.googleapis.com/chartmuseum.jenkins-x.io
+Successfully added Helm repository storage.googleapis.com.
+Adding missing Helm repo: jenkins-x-chartmuseum http://jenkins-x-chartmuseum:8080
+Successfully added Helm repository jenkins-x-chartmuseum.
+WARNING: No $CHART_REPOSITORY defined so using the default value of: http://jenkins-x-chartmuseum:8080
+Uploading chart file wem2k-server-0.0.8.tgz to http://jenkins-x-chartmuseum:8080/api/charts
+Received 201 response: {"saved":true}
+
+Showing logs for build [32mww-daniel-mora-wem2k-server-mas-1[0m stage [32mfrom-build-pack[0m and container [32mstep-promote-jx-promote[0m
+WARNING: prow based install so skip waiting for the merge of Pull Requests to go green as currently there is an issue with gettingstatuses from the PR, see https://github.com/jenkins-x/**/issues/2410
+Promoting app wem2k-server version 0.0.8 to namespace **-staging
+Created Pull Request: https://github.com/**************/environment-crystalviridian-staging/pull/1
+Pull Request https://github.com/**************/environment-crystalviridian-staging/pull/1 is merged at sha 0acb405980ef3f41164e868fc392a6ed37da3568
+Pull Request merged but we are not waiting for the update pipeline to complete!
+WARNING: Could not find the service URL in namespace **-staging for names wem2k-server, **-wem2k-server, **-staging-wem2k-server
